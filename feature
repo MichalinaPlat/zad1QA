@@ -1,9 +1,12 @@
 Feature: authenticate to the application
+
 	A regular user should be able to authenticate to the application and then he can see his account details.
-	Rules:
-	-	User must be registered user
-	-	Registered user must fill login field with valid email address, up to 60 characters and with correct password
+		Rules:
+		-User must be registered user
+		-Registered user must fill login field with valid email address, up to 60 characters and with correct password
+
 Scenario: registered user successful authenticate to the application
+	
 	Given user is a registered user 
 	And he is on login page
 	When he fills login field with valid email address, up to 60 characters
@@ -12,6 +15,7 @@ Scenario: registered user successful authenticate to the application
 	And he can see his account details – name, surname, email address, mailing address
 
 Scenario Outline: registered user unsuccessful authenticate to the application 
+	
 	Given user is a registered user 
 	And his valid email: User1@app.pl, correct password: Admin123!
 	And he is on login page
@@ -45,6 +49,7 @@ Examples:
 |User1@app.pl	    	|           |
 
 Scenario: unregistered user unsuccessful authenticate to the application 
+	
 	Given user is unregistered user
 	And he is on login page
 	When he fills login field with User1@app.pl
@@ -54,6 +59,7 @@ Scenario: unregistered user unsuccessful authenticate to the application
 	And he can’t see his account details
 
 Scenario Outline: registered user with incorrect logon unsuccessful authenticate to the application 
+	
 	Given user is a registered user 
 	And his correct password: Admin123!
 	And he is on login page
