@@ -22,26 +22,27 @@ Scenario Outline: registered user unsuccessful authenticate to the application
 	And he can’t see his account details 
 
 Examples:
-login		password
-user1@app.pl	Admin123!
-User2@app.pl	Admin123!
-User1@app.p	Admin123!
-User1#app.pl	Admin123!
-User1@ap.pl	Admin123!
-User11@app.pl	Admin123!
-User1@app.com	Admin123!
-User1@wp.pl	Admin123!
-User1@app.pl	Admin123
-User1@app.pl	Admin1234!
-User1@app.pl	Admin123$
-User1@app.pl	Adminn123!
-User1@app.pl	Admin
-User1@app.pl	admin123!
-User2@app.pl	Adin123!
-User1@app.p	Admin133!
-User1#app.pl	admin123@
-		Admin123!
-User1@app.pl	
+	
+|login	        	|password   |
+|user1@app.pl	   	|Admin123!  |
+|User2@app.pl	    	|Admin123!  |
+|User1@app.p	    	|Admin123!  |
+|User1#app.pl	    	|Admin123!  |
+|User1@ap.pl	    	|Admin123!  |
+|User11@app.pl	 	|Admin123!  |
+|User1@app.com	  	|Admin123!  |
+|User1@wp.pl	    	|Admin123!  | 
+|User1@app.pl	    	|Admin123   |
+|User1@app.pl	    	|Admin1234! |
+|User1@app.pl	    	|Admin123$  |
+|User1@app.pl	    	|Adminn123! |
+|User1@app.pl	    	|Admin      |
+|User1@app.pl	    	|admin123!  |
+|User2@app.pl	    	|Adin123!   |
+|User1@app.p	    	|Admin133!  |
+|User1#app.pl	    	|admin123@  |
+|	            	|Admin123!  |
+|User1@app.pl	    	|           |
 
 Scenario: unregistered user unsuccessful authenticate to the application 
 	Given user is unregistered user
