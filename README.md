@@ -1,10 +1,10 @@
 # zad1QA
 
 Feature: authenticate to the application
-    A regular user should be able to authenticate to the application and then he can see his account details.
-    Rules:
-      -	User must be registered user
-      -	Registered user must fill login field with valid email address, up to 60 characters and with correct password
+  	  A regular user should be able to authenticate to the application and then he can see his account details.
+   		 Rules:
+     		 -	User must be registered user
+     		 -	Registered user must fill login field with valid email address, up to 60 characters and with correct 				password
       
 Scenario: registered user successful authenticate to the application
 
