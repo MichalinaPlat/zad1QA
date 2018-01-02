@@ -28,7 +28,7 @@ Scenario Outline: registered user unsuccessful authenticate to the application
 
 Examples:
 
-|login	          |password   |
+|login	        	  |password   |
 |user1@app.pl	    |Admin123!  |
 |User2@app.pl	    |Admin123!  |
 |User1@app.p	    |Admin123!  |
