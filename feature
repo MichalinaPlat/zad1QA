@@ -64,8 +64,8 @@ Scenario Outline: registered user with incorrect logon unsuccessful authenticate
 	And he can’t see his account details 
 
 Examples:
-login
-useruseruseruseruseruseruseruseruseruseruseruseruseruseruseruser@app.pl
-User111111111111111111111111111111111111111111111111111111111@app.pl
+|login									|
+|useruseruseruseruseruseruseruseruseruseruseruseruseruseruseruser@app.pl|
+|User111111111111111111111111111111111111111111111111111111111@app.pl	|
 
 
