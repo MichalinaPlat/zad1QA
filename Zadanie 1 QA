@@ -4,20 +4,31 @@ Feature: authenticate to the application
 		Rules:
 		-User must be registered user
 		-Registered user must fill login field with valid email address, up to 60 characters and with correct password
+		
+Background:
+	Given user is a regular user
+	And he has an e-mail
 
-Scenario: registered user successful authenticate to the application
+Scenario Outline: registered user successful authenticate to the application
 	
 	Given user is a registered user 
 	And he is on login page
-	When he fills login field with valid email address, up to 60 characters
-	And he fills correct password 
+	When he fills login field with <login>
+	And he fills <password>
 	Then he authenticates to the application
 	And he can see his account details – name, surname, email address, mailing address
+	
+Examples:
+	
+|login	        							|password   |
+|user@app.pl	   							|Admin123!  |
+|User1234567891234567891234567891234567891234567891234@app.pl    	|Admin123!  |
+|User123456789123456789123456789123456789123456789123@app.pl	    	|Admin123!  |
 
-Scenario Outline: registered user unsuccessful authenticate to the application 
+
+Scenario Outline: unsuccessful authenticate to the application 
 	
 	Given user is a registered user 
-	And his valid email: User1@app.pl, correct password: Admin123!
 	And he is on login page
 	When he fills login field with <login>
 	And he fills <password>	
@@ -28,23 +39,15 @@ Scenario Outline: registered user unsuccessful authenticate to the application
 Examples:
 	
 |login	        	|password   |
-|user1@app.pl	   	|Admin123!  |
-|User2@app.pl	    	|Admin123!  |
+|user1@appl	   	|Admin123!  |
+|User2@app.	    	|Admin123!  |
 |User1@app.p	    	|Admin123!  |
 |User1#app.pl	    	|Admin123!  |
 |User1@ap.pl	    	|Admin123!  |
-|User11@app.pl	 	|Admin123!  |
+|User@app...pl	 	|Admin123!  |
 |User1@app.com	  	|Admin123!  |
-|User1@wp.pl	    	|Admin123!  | 
-|User1@app.pl	    	|Admin123   |
-|User1@app.pl	    	|Admin1234! |
-|User1@app.pl	    	|Admin123$  |
-|User1@app.pl	    	|Adminn123! |
-|User1@app.pl	    	|Admin      |
-|User1@app.pl	    	|admin123!  |
-|User2@app.pl	    	|Adin123!   |
-|User1@app.p	    	|Admin133!  |
-|User1#app.pl	    	|admin123@  |
+|@.pl	    		|Admin123!  | 
+|User1app.pl	    	|Admin123   |
 |	            	|Admin123!  |
 |User1@app.pl	    	|           |
 
@@ -73,5 +76,6 @@ Examples:
 |login									|
 |useruseruseruseruseruseruseruseruseruseruseruseruseruseruseruser@app.pl|
 |User111111111111111111111111111111111111111111111111111111111@app.pl	|
+|User12345678912345678912345678912345678912345678912345@app.pl		|
 
 
